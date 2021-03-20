@@ -26,6 +26,10 @@ def moodtracker(request):
     return render(request, 'accounts/moodtracker.html')
 
 
+def counsellingBooking(request):
+    return render(request, 'accounts/counsellingBooking.html')
+
+
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -56,5 +60,3 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
-
-

@@ -1,6 +1,17 @@
 from django.db import models
 
 
-class UserAccount(models.Model):
-    username = models.TextField()
-    password = models.TextField()
+class CounsellingSession(models.Model):
+    client_name = models.CharField(max_length=200, null=True)
+    session_date = models.DateField(null=True)
+    session_time = models.TimeField(null=True)
+
+
+class Counseller(models.Model):
+    counseller_name = models.CharField(max_length=200, null=True)
+
+
+class MoodTrackerData(models.Model):
+    mood_value = models.IntegerField(null=True)
+    additional_comments = models.CharField(max_length=500, null=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)

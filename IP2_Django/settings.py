@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'healthApp.apps.HealthappConfig',
 
+
     # third-party
 
     # own

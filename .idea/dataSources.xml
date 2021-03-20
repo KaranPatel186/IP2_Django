@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:F:\UNI WORK\IP2\Code\IP2_Django\heathAppDB</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="heathAppDB [2]" uuid="da23d385-0206-472a-a8f3-a12bc4c19cf5">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\kppat\PycharmProjects\IP2_Django\heathAppDB</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
