@@ -23,6 +23,7 @@ urlpatterns = [
     path('meditation/', views.meditation),
     path('counsellingBooking/', views.counsellingBooking),
     path('moodtracker/', views.moodtracker),
+    path('moodtrackerData/', views.moodtrackerData),
     path('login/', views.loginPage, name='login'),
     path('register/', views.register, name='register'),
 

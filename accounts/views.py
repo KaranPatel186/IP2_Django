@@ -26,6 +26,10 @@ def moodtracker(request):
     return render(request, 'accounts/moodtracker.html')
 
 
+def moodtrackerData(request):
+    return render(request, 'accounts/moodtrackerData.html')
+
+
 def counsellingBooking(request):
     return render(request, 'accounts/counsellingBooking.html')
 
