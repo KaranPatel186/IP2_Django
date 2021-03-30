@@ -1,37 +1,33 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import Group
 
 # Create your views here.
+from .decorators import allowed_users, unauthenticated_user
+from .models import *
 from .forms import CreateUserForm
 
 
-def home(request):
-    return render(request, 'accounts/moodtracker.html')
+@unauthenticated_user
+def register(request):
+    form = CreateUserForm()
 
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Account Created Successfully')
 
-def counselling(request):
-    return render(request, 'accounts/counselling.html')
+            return redirect('../login')
 
-
-def meditation(request):
-    return render(request, 'accounts/meditation.html')
-
-
-def moodtracker(request):
-    return render(request, 'accounts/moodtracker.html')
-
-
-def moodtrackerData(request):
-    return render(request, 'accounts/moodtrackerData.html')
-
-
-def counsellingBooking(request):
-    return render(request, 'accounts/counsellingBooking.html')
+    context = {'form': form}
+    return render(request, 'accounts/register.html', context)
 
 
 def loginPage(request):
@@ -51,16 +47,36 @@ def loginPage(request):
     return render(request, 'accounts/loginPage.html')
 
 
-def register(request):
-    form = CreateUserForm()
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Account Created Successfully')
 
-            return redirect('../login')
+@login_required(login_url='login')
+def home(request):
+    return render(request, 'accounts/moodtracker.html')
 
-    context = {'form': form}
-    return render(request, 'accounts/register.html', context)
+
+@login_required(login_url='login')
+def counselling(request):
+    return render(request, 'accounts/counselling.html')
+
+
+@login_required(login_url='login')
+def meditation(request):
+    return render(request, 'accounts/meditation.html')
+
+
+@login_required(login_url='login')
+def moodtracker(request):
+    return render(request, 'accounts/moodtracker.html')
+
+
+@login_required(login_url='login')
+def moodtrackerData(request):
+    return render(request, 'accounts/moodtrackerData.html')
+
+
+@login_required(login_url='login')
+def counsellingBooking(request):
+    return render(request, 'accounts/counsellingBooking.html')

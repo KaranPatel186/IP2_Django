@@ -1,0 +1,57 @@
+    body,
+    html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+            background: rgb(203, 74, 221);
+            background: linear-gradient(180deg, rgb(185, 72, 203) 0%, rgba(38, 108, 202, 0.89) 100%);
+    }
+
+
+    h1{
+        text-align: center;
+        color: white;
+        font-size: 45px;
+        margin-top: 70px;
+
+    }
+    .button {
+        background-color: #ffffff;
+        font-size: 25px;
+        border: none;
+        color: black;
+        padding: 10px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 22px;
+        margin-top: 20px;
+
+
+    }
+    .button:hover {
+    background-color: #f1f1f1;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    table {
+        font-family: arial;
+        border-collapse: collapse;
+        width: 60%;
+        background-color: white;
+        align-content: inherit;
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 10px;
+    }
