@@ -16,10 +16,12 @@
 
     }
     .button {
-        background-color: #ffffff;
+        background-color: #d33f8d !important;;
         font-size: 25px;
+        margin-left: 8px;
+        margin-right: 8px;
         border: none;
-        color: black;
+        color: white;
         padding: 10px 50px;
         text-align: center;
         text-decoration: none;

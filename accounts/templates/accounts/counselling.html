@@ -4,6 +4,8 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
     <title>Health App</title>
 </head>
 
@@ -21,18 +23,23 @@
 
     <div class="center">
     <p>
-        <table>
-    <thead>
-        <tr>
-        <th>Session ID</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Counsellor</th>
-        </tr>
-    </thead>
+       <table>
+				<tr>
+					<th>Session_ID</th>
+					<th>Date</th>
+					<th>Time</th>
+                    <th>Counseller</th>
+				</tr>
 
-    </tr>
-</table>
+				{% for CounsellingData in CounsellingData %}
+
+				<tr>
+					<td>{{CounsellingData.session_date}}</td>
+					<td>{{CounsellingData.session_time}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
     </p>
     </div>
 
@@ -40,11 +47,12 @@
 
     <div class="center">
         <a href="../counsellingBooking"><button class="button">Book New Session</button></a>
+        <button class="button">Request Session Changes</button>
     </div>
 
-    <div class="center">
-       <button class="button">Request Session Changes</button>
-    </div>
+
+
+
 
 
     <hr>

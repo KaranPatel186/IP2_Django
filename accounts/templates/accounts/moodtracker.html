@@ -16,6 +16,7 @@
 </head>
 <body>
 {% include 'accounts/navbar.html' %}
+<div class="center">
 <main>
   <h1>How are you feeling today?</h1>
     <input type="radio" id="one" name="number" value="one">
@@ -34,9 +35,9 @@
     <input type="text" id="additionalComments" name="comments">
     <label for="additionalComments">Additional Comments</label>
       <button id="submit">Submit</button>
-      <button id="previousData">View Previous Data</button>
+      <a href="../moodtrackerData"><button class="button">View Previous Data</button></a>
   </section>
-
+</div>
 </body>
 
 </html>

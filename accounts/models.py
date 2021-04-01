@@ -31,7 +31,7 @@ class MoodTrackerData(models.Model):
         (5, 5),
     )
 
-    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     mood_value = models.IntegerField(null=True, choices=MOOD)
     additional_comments = models.CharField(max_length=2000, null=True)
     date = models.DateTimeField(auto_now_add=True, null=True)

@@ -57,9 +57,14 @@ def home(request):
     return render(request, 'accounts/moodtracker.html')
 
 
+print('MoodTrackerData:', MoodTrackerData)
+
+
 @login_required(login_url='login')
 def counselling(request):
-    return render(request, 'accounts/counselling.html')
+    counsellingData = CounsellingSession.objects.all()
+
+    return render(request, 'accounts/counselling.html', {'CounsellingData': counsellingData})
 
 
 @login_required(login_url='login')
@@ -74,7 +79,9 @@ def moodtracker(request):
 
 @login_required(login_url='login')
 def moodtrackerData(request):
-    return render(request, 'accounts/moodtrackerData.html')
+    moodtrackerdata = MoodTrackerData.objects.all()
+
+    return render(request, 'accounts/moodtrackerData.html', {'MoodTrackerData': moodtrackerdata})
 
 
 @login_required(login_url='login')

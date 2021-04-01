@@ -58,6 +58,8 @@
         border: 1px solid #dddddd;
         text-align: left;
         padding: 10px;
+        text-decoration-color: #333333;
+
     }
 
 
@@ -77,18 +79,24 @@
         <br>
         <br>
     <div class="center">
-    <p>
-        <table>
-    <thead>
-        <tr>
-        <th>Previous Mood</th>
-        <th>Date</th>
-        <th>Additional Comments</th>
-        </tr>
-    </thead>
+    <p>`
+			<table>
+				<tr>
+					<th>Previous Mood</th>
+					<th>Date</th>
+					<th>Additional Comments</th>
+				</tr>
 
-    </tr>
-</table>
+				{% for MoodTrackerData in MoodTrackerData %}
+
+				<tr>
+					<td>{{MoodTrackerData.mood_value}}</td>
+					<td>{{MoodTrackerData.date}}</td>
+					<td>{{MoodTrackerData.additional_comments}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
 
 
 </body>
