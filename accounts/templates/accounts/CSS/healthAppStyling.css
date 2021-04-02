@@ -7,6 +7,18 @@
             background: linear-gradient(180deg, rgb(185, 72, 203) 0%, rgba(38, 108, 202, 0.89) 100%);
     }
 
+    .mainbox{
+			margin-top: 75px;
+            margin-right: 8%;
+            margin-left: 8%;
+			padding: 0;
+			height: 40%;
+            background: white;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+    }
 
     h1{
         text-align: center;
@@ -15,23 +27,67 @@
         margin-top: 70px;
 
     }
+
+
+    h5{
+        color: white;
+        font-size: 15px;
+        margin-top: 2px;
+
+    }
+
     .button {
-        background-color: #d33f8d !important;;
+        background-color: #454545 !important;;
         font-size: 25px;
-        margin-left: 8px;
-        margin-right: 8px;
+        margin-left: 10px;
+        margin-right: 20px;
         border: none;
         color: white;
-        padding: 10px 50px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
-        border-radius: 22px;
-        margin-top: 20px;
+        border-radius: 8px;
+        margin-top: 60px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
 
 
     }
+
+    .backbutton {
+        background-color: #454545 !important;;
+        font-size: 25px;
+        margin-left: 10px;
+        border: none;
+        color: white;
+        padding: 5px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-top: 40px;
+    }
+
+    .radiobuttons {
+        background-color: #ffffff !important;;
+        font-size: 25px;
+        border: none;
+        color: #000000;
+        padding: 1% 9.3%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 5%;
+        margin-top: 190px;
+    }
+
     .button:hover {
     background-color: #f1f1f1;
     }
@@ -42,18 +98,21 @@
         align-items: center;
     }
 
+    center {
+        display: flex;
+        justify-content: left;
+        align-items: inherit;
+    }
 
     table {
-        font-family: arial;
-        border-collapse: collapse;
-        width: 60%;
-        background-color: white;
+
+
+        width: 40%;
+
         align-content: inherit;
         margin-top: 70px;
         margin-bottom: 50px;
-    }
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 10px;
+
+        margin-right: 5%;
+        margin-left: 5%;
     }

@@ -20,12 +20,13 @@
     <h1>
         View Upcoming Session or Book New Session
     </h1>
-
+<div class="mainbox">
     <div class="center">
     <p>
-       <table>
+
+  <table class="table table-hover">
 				<tr>
-					<th>Session_ID</th>
+					<th>Session ID</th>
 					<th>Date</th>
 					<th>Time</th>
                     <th>Counseller</th>
@@ -36,6 +37,8 @@
 				<tr>
 					<td>{{CounsellingData.session_date}}</td>
 					<td>{{CounsellingData.session_time}}</td>
+                    <td>{{CounsellingData.session_date}}</td>
+					<td>{{CounsellingData.session_time}}</td>
 				</tr>
 				{% endfor %}
 
@@ -43,11 +46,11 @@
     </p>
     </div>
 
-
+</div>
 
     <div class="center">
+        <button class="button">Request Changes</button>
         <a href="../counsellingBooking"><button class="button">Book New Session</button></a>
-        <button class="button">Request Session Changes</button>
     </div>
 
 
@@ -55,8 +58,7 @@
 
 
 
-    <hr>
-    <h5>Our Footer</h5>
+
 
 </body>
 
