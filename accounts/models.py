@@ -1,5 +1,8 @@
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
 
 
 class Client(models.Model):
@@ -12,14 +15,27 @@ class Client(models.Model):
         return self.name
 
 
+class Counseller(models.Model):
+    name = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class CounsellingSession(models.Model):
-    client_name = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    COUNSELLERS = (
+        ('John', 'John'),
+        ('Mark', 'Mark'),
+        ('Dave', 'Dave'),
+    )
+    session_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, max_length=6)
+    client_name = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     session_date = models.DateField(null=True)
     session_time = models.TimeField(null=True)
+    counseller = models.CharField(max_length=200, null=True, choices=COUNSELLERS)
 
-
-class Counseller(models.Model):
-    counseller_name = models.CharField(max_length=200, null=True)
+    def __int__(self):
+        return self.session_id
 
 
 class MoodTrackerData(models.Model):

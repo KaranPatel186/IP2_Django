@@ -35,10 +35,10 @@
 				{% for CounsellingData in CounsellingData %}
 
 				<tr>
+					<td>{{CounsellingData.session_id}}</td>
 					<td>{{CounsellingData.session_date}}</td>
-					<td>{{CounsellingData.session_time}}</td>
-                    <td>{{CounsellingData.session_date}}</td>
-					<td>{{CounsellingData.session_time}}</td>
+                    <td>{{CounsellingData.session_time}}</td>
+                    <td>{{CounsellingData.counseller}}</td>
 				</tr>
 				{% endfor %}
 
