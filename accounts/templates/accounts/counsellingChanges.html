@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-
     <title>Health App</title>
 </head>
-
 <style>
     {% include 'accounts/CSS/healthAppStyling.css' %}
 </style>
-
 <body>
 
     {% include 'accounts/navbar.html' %}
 
-    <h1>
-        View Upcoming Session or Book New Session
-    </h1>
-<div class="mainbox">
-    <div class="center">
-    <p>
-
-  <table class="table table-hover">
-				<tr>
-					<th>Session ID</th>
-					<th>Date</th>
-					<th>Time</th>
-                    <th>Counseller</th>
-				</tr>
-
-				{% for CounsellingData in CounsellingData %}
-
-				<tr>
-					<td>{{CounsellingData.session_id}}</td>
-					<td>{{CounsellingData.session_date}}</td>
-                    <td>{{CounsellingData.session_time}}</td>
-                    <td>{{CounsellingData.counseller}}</td>
-				</tr>
-				{% endfor %}
-
-			</table>
-    </p>
-    </div>
-
+<div class="left">
+<a href="../counselling"><button class="backbutton">Back</button></a>
 </div>
 
-    <div class="center">
-        <a href="../counsellingChanges"><button class="button">Request Changes</button></a>
-        <a href="../counsellingBooking"><button class="button">Book New Session</button></a>
+    <h1>
+        Request Session Changes
+    </h1>
+
+<div class="formbox">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+
+            <div class="center">
+            <input type="text" name="client_name" placeholder="Name..." class="form-control">
+            </div>
+            <br>
+
+            <br>
+            <div class="center">
+            <input type="text" name="client_session_date" placeholder="Session Date..." class="form-control" >
+            </div>
+            <br>
+
+            <br>
+             <div class="center">
+            <input type="text" name="session_id" placeholder="Session ID..." class="form-control">
+             </div>
+            <br>
+
+            <br>
+            <div class="center">
+            <input type="text" name="requested_changes" placeholder="Requested Changes..." class="form-control">
+            </div>
+
+
+
     </div>
-
-
-
-
+    <div class="center">
+        <input type="submit" class="button" name="Submit">
+    </div>
+</form>
 
 
 

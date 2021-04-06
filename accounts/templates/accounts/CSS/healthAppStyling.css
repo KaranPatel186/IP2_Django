@@ -9,10 +9,25 @@
 
     .mainbox{
 			margin-top: 75px;
-            margin-right: 8%;
-            margin-left: 8%;
-			padding: 0;
-			height: 40%;
+            margin-right: 100px;
+            margin-left: 100px;
+			padding: 5px;
+			height: 400px;
+            background: white;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+    }
+
+    .formbox{
+			margin-top: 40px;
+            margin-right: 150px;
+            margin-left: 150px;
+            padding-top: 50px;
+			padding-left: 30px;
+            padding-right: 30px;
+			height: 400px;
             background: white;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -59,6 +74,27 @@
 
     }
 
+
+    .datetimebox {
+        font-size: 25px;
+        margin-top: 80px;
+        margin-left: 10px;
+        margin-right: 20px;
+        border: none;
+        color: white;
+        padding: 10px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 8px;
+
+
+
+
+
+    }
+
     .backbutton {
         background-color: #454545 !important;;
         font-size: 25px;
@@ -75,17 +111,31 @@
     }
 
     .radiobuttons {
-        background-color: #ffffff !important;;
+
         font-size: 25px;
         border: none;
         color: #000000;
-        padding: 1% 9.3%;
+        margin-left: 9%;
+        margin-right: 9%;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
         border-radius: 5%;
-        margin-top: 190px;
+
+
+    }
+
+    .images {
+
+        border: none;
+        color: #000000;
+
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+
     }
 
     .button:hover {
@@ -98,7 +148,7 @@
         align-items: center;
     }
 
-    center {
+    .left {
         display: flex;
         justify-content: left;
         align-items: inherit;

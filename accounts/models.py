@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
+from django import forms
 
 
 class Client(models.Model):
@@ -29,10 +30,10 @@ class CounsellingSession(models.Model):
         ('Dave', 'Dave'),
     )
     session_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, max_length=6)
-    client_name = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    client_name = models.ForeignKey(Client, null=True, blank=True, on_delete=models.CASCADE)
     session_date = models.DateField(null=True)
     session_time = models.TimeField(null=True)
-    counseller = models.CharField(max_length=200, null=True, choices=COUNSELLERS)
+    counseller = models.CharField(max_length=200, null=True, choices=COUNSELLERS,)
 
     def __int__(self):
         return self.session_id

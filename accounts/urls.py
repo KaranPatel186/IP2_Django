@@ -22,6 +22,7 @@ urlpatterns = [
     path('counselling/', views.counselling),
     path('meditation/', views.meditation),
     path('counsellingBooking/', views.counsellingBooking),
+    path('counsellingChanges/', views.counsellingChanges),
     path('moodtracker/', views.moodtracker),
     path('moodtrackerData/', views.moodtrackerData),
     path('login/', views.loginPage, name='login'),

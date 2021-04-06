@@ -3,7 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-from accounts.models import *
+from accounts.models import CounsellingSession
+from accounts.models import MoodTrackerData
+from accounts.models import SessionChanges
 
 
 class CreateUserForm(UserCreationForm):
@@ -12,13 +14,19 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
 
 
-class MoodTrackerData(ModelForm):
+class MoodTrackerForm(ModelForm):
     class Meta:
         model = MoodTrackerData
         fields = ['mood_value', 'additional_comments']
 
 
-class CounsellingSessions(ModelForm):
+class CounsellingBookingForm(ModelForm):
     class Meta:
         model = CounsellingSession
         fields = ['session_date', 'session_time']
+
+
+class CounsellingChangesForm(ModelForm):
+    class Meta:
+        model = SessionChanges
+        fields = '__all__'

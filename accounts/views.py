@@ -7,11 +7,13 @@ from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .decorators import allowed_users, unauthenticated_user
 from .models import *
 from .forms import CreateUserForm
+from .forms import *
 
 
 @unauthenticated_user
@@ -74,7 +76,15 @@ def meditation(request):
 
 @login_required(login_url='login')
 def moodtracker(request):
-    return render(request, 'accounts/moodtracker.html')
+    form = MoodTrackerForm()
+    if request.method == 'POST':
+        form = MoodTrackerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/moodtracker')
+
+    context = {'form': form}
+    return render(request, 'accounts/moodtracker.html', context)
 
 
 @login_required(login_url='login')
@@ -86,4 +96,26 @@ def moodtrackerData(request):
 
 @login_required(login_url='login')
 def counsellingBooking(request):
-    return render(request, 'accounts/counsellingBooking.html')
+    form = CounsellingBookingForm()
+    if request.method == 'POST':
+        form = CounsellingBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/counselling')
+
+    context = {'form': form}
+    return render(request, 'accounts/counsellingBooking.html', context)
+
+
+@login_required(login_url='login')
+def counsellingChanges(request):
+    form = CounsellingChangesForm()
+    if request.method == 'POST':
+        form = CounsellingChangesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/counselling')
+
+    context = {'form': form}
+
+    return render(request, 'accounts/counsellingChanges.html', context)
