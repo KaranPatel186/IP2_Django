@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 
 
+<style>
+  .hello-msg{
+    background-color: #454545 !important;;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 20px;
+  }
+
+  .title {
+      margin-left: 10px;
+  }
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="title">
   <a class="navbar-brand" href="../moodtracker">GCU Mental Health</a>
+    </div>
   <button class="navbar-toggler" type="button" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,4 +42,7 @@
       </li>
     </ul>
   </div>
+
+    <span>Hello, {{request.user}}</span>
+  <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
 </nav>

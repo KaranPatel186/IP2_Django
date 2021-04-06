@@ -77,11 +77,12 @@ def meditation(request):
 @login_required(login_url='login')
 def moodtracker(request):
     form = MoodTrackerForm()
+
     if request.method == 'POST':
         form = MoodTrackerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/moodtracker')
+            return redirect('/moodtrackerData')
 
     context = {'form': form}
     return render(request, 'accounts/moodtracker.html', context)
