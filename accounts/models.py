@@ -61,4 +61,6 @@ class SessionChanges(models.Model):
     requested_changes = models.CharField(max_length=500, null=True)
 
 
+class VideoFiles(models.Model):
+    name = models.CharField(max_length=200, null=True)
 

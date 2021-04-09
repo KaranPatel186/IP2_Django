@@ -7,3 +7,5 @@ admin.site.register(Counseller)
 admin.site.register(MoodTrackerData)
 admin.site.register(SessionChanges)
 admin.site.register(Client)
+admin.site.register(VideoFiles)
+
