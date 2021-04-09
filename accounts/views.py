@@ -1,3 +1,5 @@
+import os
+
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -75,7 +77,20 @@ def counselling(request, pk):
 
 @login_required(login_url='login')
 def meditation(request):
-    return render(request, 'accounts/meditation.html')
+    path = 'static/videos'
+    vid_list = os.listdir(path)
+
+    context = {'vid_list': vid_list}
+    return render(request, 'accounts/meditation.html', context)
+
+
+@login_required(login_url='login')
+def meditationPlayer(request, pk):
+    path = 'static/videos'
+    vid_list = os.listdir(path)
+
+    context = {'vid_list': vid_list}
+    return render(request, 'accounts/meditation.html', context)
 
 
 @login_required(login_url='login')
