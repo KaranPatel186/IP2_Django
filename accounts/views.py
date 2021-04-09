@@ -10,6 +10,8 @@ from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse
+
 from .decorators import allowed_users, unauthenticated_user
 from .models import *
 from .forms import CreateUserForm
@@ -41,7 +43,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('../moodtracker')
+            return redirect('../moodtracker/')
         else:
             messages.info(request, 'Username OR Password is incorrect')
 
@@ -63,8 +65,10 @@ print('MoodTrackerData:', MoodTrackerData)
 
 
 @login_required(login_url='login')
-def counselling(request):
-    counsellingData = CounsellingSession.objects.all()
+def counselling(request, pk):
+    client = User.objects.get(id=pk)
+
+    counsellingData = client.counsellingsession_set.all()
 
     return render(request, 'accounts/counselling.html', {'CounsellingData': counsellingData})
 
@@ -76,36 +80,45 @@ def meditation(request):
 
 @login_required(login_url='login')
 def moodtracker(request):
-    form = MoodTrackerForm()
+    form = MoodTrackerForm(initial={'client': request.user})
 
     if request.method == 'POST':
+
         form = MoodTrackerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/moodtrackerData')
+            return redirect('/')
 
     context = {'form': form}
     return render(request, 'accounts/moodtracker.html', context)
 
 
 @login_required(login_url='login')
-def moodtrackerData(request):
-    moodtrackerdata = MoodTrackerData.objects.all()
+def moodtrackerData(request, pk):
+    client = User.objects.get(id=pk)
 
-    return render(request, 'accounts/moodtrackerData.html', {'MoodTrackerData': moodtrackerdata})
+    moodtrackerdata = client.moodtrackerdata_set.all()
+
+    context = {'moodtrackerdata': moodtrackerdata, 'client': client}
+    return render(request, 'accounts/moodtrackerData.html', context)
 
 
 @login_required(login_url='login')
 def counsellingBooking(request):
-    form = CounsellingBookingForm()
+    form = CounsellingBookingForm(initial={'client': request.user})
     if request.method == 'POST':
         form = CounsellingBookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/counselling')
-
+            return redirect('/counsellingBookingConfirm')
+    print(Group.objects.get(name='Counsellers').user_set.all())
     context = {'form': form}
     return render(request, 'accounts/counsellingBooking.html', context)
+
+
+@login_required(login_url='login')
+def counsellingBookingConfirm(request):
+    return render(request, 'accounts/counsellingBookingConfirm.html')
 
 
 @login_required(login_url='login')

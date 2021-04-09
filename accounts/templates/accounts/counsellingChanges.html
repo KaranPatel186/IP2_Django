@@ -13,7 +13,7 @@
     {% include 'accounts/navbar.html' %}
 
 <div class="left">
-<a href="../counselling"><button class="backbutton">Back</button></a>
+<a href="{% url 'counselling' request.user.id %}"><button class="backbutton">Back</button></a>
 </div>
 
     <h1>

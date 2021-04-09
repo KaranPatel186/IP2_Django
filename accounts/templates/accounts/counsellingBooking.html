@@ -14,28 +14,30 @@
     {% include 'accounts/navbar.html' %}
 
 <div class="left">
-    <a href="../counselling"><button class="backbutton">Back</button></a>
+    <a href="{% url 'counselling' request.user.id %}"><button class="backbutton">Back</button></a>
 </div>
 
     <h1>
         Book New Session
     </h1>
 
-<div class="formbox">
+
     <form action="" method="POST">
         {% csrf_token %}
-
+        <div class="formbox">
+        <p hidden>{{ form.client }}</p>
             <br>
             Select a Date
             <input type="date" name="session_date" placeholder="Session Date..." class="form-control" >
             <br>
-            <br>
-            <br>
             Select a Time:
             <input type="time" name="session_time" placeholder="Session Date..." class="form-control" >
-
-</div>
-
+            <br>
+            Prefered Counseller:
+            <br>
+            <br>
+             {{ form.counseller }}
+    </div>
     <div class="center">
     <input type="submit" class="button" name="Submit">
     </div>

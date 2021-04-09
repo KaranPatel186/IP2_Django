@@ -3,7 +3,7 @@
 
 <style>
   .hello-msg{
-    background-color: #454545 !important;;
+    background-color: #D33F8D !important;;
         font-size: 12px;
         margin-left: 10px;
         margin-right: 10px;
@@ -32,13 +32,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="../moodtracker">Mood Tracker</a>
+        <a class="nav-link" href="/../moodtracker">Mood Tracker</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../counselling">Counselling</a>
+        <a class="nav-link" href="{% url 'counselling' request.user.id %}">Counselling</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../meditation">Meditation</a>
+        <a class="nav-link" href="/../meditation">Meditation</a>
       </li>
     </ul>
   </div>

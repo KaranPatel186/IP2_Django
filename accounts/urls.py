@@ -18,13 +18,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home),
-    path('counselling/', views.counselling),
-    path('meditation/', views.meditation),
-    path('counsellingBooking/', views.counsellingBooking),
-    path('counsellingChanges/', views.counsellingChanges),
-    path('moodtracker/', views.moodtracker),
-    path('moodtrackerData/', views.moodtrackerData),
+    path('', views.moodtracker),
+    path('counselling/<str:pk>/', views.counselling, name='counselling'),
+    path('meditation/', views.meditation, name='meditation'),
+    path('counsellingBooking/', views.counsellingBooking, name='counsellingBooking'),
+    path('counsellingBookingConfirm/', views.counsellingBookingConfirm, name='counsellingBooking'),
+    path('counsellingChanges/', views.counsellingChanges, name='counsellingChanges'),
+    path('moodtracker/', views.moodtracker, name='moodtracker'),
+    path('moodtrackerData/<str:pk>/', views.moodtrackerData, name='moodtrackerdata'),
     path('login/', views.loginPage, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', views.logoutUser, name="logout"),

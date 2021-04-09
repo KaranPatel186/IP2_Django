@@ -17,13 +17,13 @@ class CreateUserForm(UserCreationForm):
 class MoodTrackerForm(ModelForm):
     class Meta:
         model = MoodTrackerData
-        fields = ['mood_value', 'additional_comments']
+        fields = ['client', 'mood_value', 'additional_comments']
 
 
 class CounsellingBookingForm(ModelForm):
     class Meta:
         model = CounsellingSession
-        fields = ['session_date', 'session_time']
+        fields = ['client', 'session_date', 'session_time', 'counseller']
 
 
 class CounsellingChangesForm(ModelForm):
